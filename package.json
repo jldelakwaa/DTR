@@ -2,8 +2,11 @@
   "name": "dtr-app",
   "private": true,
   "scripts": {
+    "dev": "pnpm dev:web",
     "dev:web": "pnpm --filter web-dtr dev",
+    "build": "pnpm build:web",
     "build:web": "pnpm --filter web-dtr build",
+    "lint": "pnpm lint:web",
     "lint:web": "pnpm --filter web-dtr lint"
   }
 }
