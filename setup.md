@@ -65,3 +65,4 @@ Use Neon if you only want a Postgres database and prefer to build auth, storage,
 - Keep business logic in shared modules or server-side code, not scattered across UI screens.
 - Protect sensitive data with database policies and server-side checks.
 - Keep employee and admin routes separated from the start so permissions stay clear.
+- Keep `.env.example` committed in each app, and put real secrets in `.env.local` instead.
