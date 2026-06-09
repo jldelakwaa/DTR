@@ -1,0 +1,13 @@
+{
+  "name": "@dtr/shared",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./supabase/client.ts",
+    "./supabase/client": "./supabase/client.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.0"
+  }
+}
