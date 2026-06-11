@@ -1,13 +1,27 @@
 import type { ReactNode } from "react";
 
+import { HomeAboutSection } from "./home-about-section";
+import { HomeContactSection } from "./home-contact-section";
+import { HomeHero } from "./home-hero";
+import { HomeNav } from "./home-nav";
+
 type HomeShellProps = {
-  action: ReactNode;
+  actions: (options: { compact: boolean }) => ReactNode;
 };
 
-export function HomeShell({ action }: HomeShellProps) {
+export function HomeShell({ actions }: HomeShellProps) {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_#28405f_0%,_#0c111b_40%,_#060910_100%)] text-zinc-50">
-      <nav className="flex items-center justify-end p-6">{action}</nav>
+    <main className="min-h-screen bg-slate-50 text-slate-950">
+      <section
+        id="home"
+        className="relative overflow-hidden bg-[linear-gradient(135deg,_#ffffff_0%,_#eff6ff_46%,_#dbeafe_100%)]"
+      >
+        <HomeNav actions={actions} />
+        <HomeHero />
+      </section>
+
+      <HomeAboutSection />
+      <HomeContactSection />
     </main>
   );
 }

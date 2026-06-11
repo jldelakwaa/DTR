@@ -14,10 +14,14 @@ type FormState = {
   password: string;
 };
 
-export function AuthForm() {
+type AuthFormProps = {
+  initialMode?: AuthMode;
+};
+
+export function AuthForm({ initialMode = "signIn" }: AuthFormProps) {
   const router = useRouter();
   const supabase = getSupabaseBrowserClient();
-  const [mode, setMode] = useState<AuthMode>("signIn");
+  const [mode, setMode] = useState<AuthMode>(initialMode);
   const [form, setForm] = useState<FormState>({ email: "", password: "" });
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");

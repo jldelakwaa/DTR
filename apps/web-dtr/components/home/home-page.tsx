@@ -8,17 +8,28 @@ import { HomeShell } from "./home-shell";
 export function HomePage() {
   const { loading, session } = useAuthSession();
 
-  const actionHref = session ? "/dashboard" : "/auth";
-  const actionLabel = loading
-    ? "Checking session..."
-    : session
-      ? "Go to dashboard"
-      : "Login / Sign up";
-
   return (
     <HomeShell
-      action={
-        <HomeAction href={actionHref} label={actionLabel} loading={loading} />
+      actions={({ compact }) =>
+        session ? (
+          <HomeAction
+            href="/dashboard"
+            label={loading ? "Checking..." : "Dashboard"}
+            compact={compact}
+            loading={loading}
+          />
+        ) : (
+          <>
+            <HomeAction
+              href="/auth"
+              label={loading ? "Checking..." : "Login"}
+              compact={compact}
+              variant="secondary"
+              loading={loading}
+            />
+            <HomeAction href="/register" label="Register" compact={compact} />
+          </>
+        )
       }
     />
   );

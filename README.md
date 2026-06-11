@@ -1,5 +1,9 @@
 # DTR
 
+# Docs
+
+- [Clean code and structure guide](./clean-code.md)
+
 # Vercel Domains
 https://dtr-web-dtr.vercel.app/
 

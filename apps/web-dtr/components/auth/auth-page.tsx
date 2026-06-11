@@ -7,7 +7,11 @@ import { AuthForm } from "./auth-form";
 import { AuthShell } from "./auth-shell";
 import { useAuthSession } from "./use-auth-session";
 
-export function AuthPage() {
+type AuthPageProps = {
+  initialMode?: "signIn" | "signUp";
+};
+
+export function AuthPage({ initialMode = "signIn" }: AuthPageProps) {
   const router = useRouter();
   const { loading, session } = useAuthSession();
 
@@ -27,7 +31,7 @@ export function AuthPage() {
 
   return (
     <AuthShell>
-      <AuthForm />
+      <AuthForm initialMode={initialMode} />
     </AuthShell>
   );
 }
